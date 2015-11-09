@@ -15,8 +15,8 @@ using namespace std;
 
 string keyword;
 string file_string;
-unsigned long global_pos;
 long count;
+
 
 int main(int argc, char* argv[])
 {
@@ -70,3 +70,15 @@ int main(int argc, char* argv[])
     print_stats(diff, threadcount, chunksize, count, keyword);
 }
 
+void thread_create (unsigned long chunksiz )
+{
+  unsigned long start = global_pos;
+  unsigned long limit = global_pos + chunksize;
+  for (unsigned long offset = file_string.find(keyword, start);
+      ((offset != std::string::npos) && (offset < limit));
+      offset = file_string.find(keyword, offset + keyword.length()))
+  {
+    local_count ++;
+  }
+
+}
