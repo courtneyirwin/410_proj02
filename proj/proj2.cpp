@@ -60,6 +60,7 @@ void *printHello(void *tid) {
 }
 
 
+
 int main(int argc, char* argv[])
 {
   // =============== SETUP =============== 
@@ -129,5 +130,3 @@ int main(int argc, char* argv[])
   // start and end time
   print_stats(diff, threadcount, chunksize, count, keyword);
 }
-
-// returns count of non-overlapping occurrences of substrings
