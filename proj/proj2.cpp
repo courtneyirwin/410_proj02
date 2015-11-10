@@ -41,24 +41,17 @@ void *countSubstring(void *tid) {
         ((offset != std::string::npos) && (offset < limit));
         offset = file_string.find(keyword, offset + keyword.length()))
     {
-      cout << "FOUND " << endl;
       ++local_count;
     }
 
+  }
     //mutex lock
     pthread_mutex_lock(&mutexCount);
     count += local_count;
     //unlock
     pthread_mutex_unlock(&mutexCount);
-  }
   pthread_exit(NULL);
 }
-
-void *printHello(void *tid) {
-  cout << "Hello world" << endl;
-  pthread_exit(NULL);
-}
-
 
 
 int main(int argc, char* argv[])
